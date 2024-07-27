@@ -27,18 +27,21 @@ Git's ongoing / stalled transition from SHA-1 to SHA-256
 - https://lwn.net/Articles/898522/
 - https://git-scm.com/docs/hash-function-transition
 
+
 ### Hashing a file
 
 A file corresponds to Git's type `blob`.
 
-`git hash-object -t blob --no-filters --literally "$filename"`
-`git hash-object -t blob "$filename"`
-`git hash-object "$filename"`
+Using `gi?`
+- `git hash-object -t blob --no-filters --literally "$filename"`- 
+- `git hash-object -t blob "$filename"`
+- `git hash-object "$filename"`
 
-`printf 'blob %s\0' "$(wc -c < "$filename")" | cat - "$filename" | sha1sum`
-`printf 'blob %s\0' "$(find -L "${filename%/*}" -maxdepth 1 -name "${filename##*/}" -printf %s)" | cat - "$filename" | sha1sum`
-`printf 'blob %s\0' "$(find -L "$(dirname "$filename")" -maxdepth 1 -name "$(basename "$filename")" -printf %s)" | cat - "$filename" | sha1sum`
-`stat --printf='blob %s\0' "$filename" | cat - "$filename" | sha1sum`
+Equivalent shell code
+- `printf 'blob %s\0' "$(wc -c < "$filename")" | cat - "$filename" | sha1sum`
+- `printf 'blob %s\0' "$(find -L "${filename%/*}" -maxdepth 1 -name "${filename##*/}" -printf %s)" | cat - "$filename" | sha1sum`
+- `printf 'blob %s\0' "$(find -L "$(dirname "$filename")" -maxdepth 1 -name "$(basename "$filename")" -printf %s)" | cat - "$filename" | sha1sum`
+- `stat --printf='blob %s\0' "$filename" | cat - "$filename" | sha1sum`
 
 ### Recreating an object entry
 
