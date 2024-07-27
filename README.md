@@ -14,7 +14,7 @@ WWW search: https://www.startpage.com/do/settings?query=git%20hash%20calculation
   https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_formatting_and_whitespace
 - https://stackoverflow.com/questions/6011172/how-to-compute-the-git-hash-object-of-a-directory
 
-Documentation for `git hash-object`, which is more comprehensible than is man-page:<br />
+Documentation for `git hash-object`, which is more comprehensible than its man-page:<br />
 https://git-scm.com/docs/git-hash-object
 
 Git internal workings
