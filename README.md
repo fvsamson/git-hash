@@ -33,6 +33,7 @@ Git's ongoing / stalled transition from SHA-1 to SHA-256
 A file corresponds to Git's type `blob`.
 
 Using `git hash-object`
+- `cat "$filepath" | git hash-object -t blob --no-filters --stdin --literally`
 - `git hash-object -t blob --no-filters --literally "$filepath"`
 - `git hash-object -t blob "$filepath"`
 - `git hash-object "$filepath"`
