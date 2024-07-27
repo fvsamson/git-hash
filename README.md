@@ -23,7 +23,7 @@ Git internal workings
 - https://nfarina.com/post/9868516270/git-is-simpler
 - https://maryrosecook.com/blog/post/git-from-the-inside-out
 
-Git's transition from SHA-1 to SHA-256
+Git's ongoing / stalled transition from SHA-1 to SHA-256
 - https://lwn.net/Articles/898522/
 - https://git-scm.com/docs/hash-function-transition
 
