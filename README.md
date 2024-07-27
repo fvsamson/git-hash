@@ -49,6 +49,6 @@ ToDo
 
 ### Recreating a `tree` object's hash
 
-Comprises one or multiple object entries.
+A `tree` object comprises one or multiple object entries.
 
 ToDo
