@@ -2,7 +2,7 @@
 **Understanding Git's hash calculations and implementing them in shell code**
 
 ### Sources
-These provided all necessary information without resorting to reading Git's source code, but at least the shell implementations were all not completely correct; but their flaws only start to show, when reading files with embedded newlines or other formatting characters.
+These provided all necessary information without resorting to reading Git's source code, but at least most the shell implementations were not completely correct; but their flaws only start to show, when reading files with embedded newlines or other formatting characters.
 
 WWW search: https://www.startpage.com/do/settings?query=git%20hash%20calculation
 - https://stackoverflow.com/a/68806436
