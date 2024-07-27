@@ -32,16 +32,16 @@ Git's ongoing / stalled transition from SHA-1 to SHA-256
 
 A file corresponds to Git's type `blob`.
 
-Using `gi?`
-- `git hash-object -t blob --no-filters --literally "$filename"`- 
-- `git hash-object -t blob "$filename"`
-- `git hash-object "$filename"`
+Using `git hash-object`
+- `git hash-object -t blob --no-filters --literally "$filepath"`
+- `git hash-object -t blob "$filepath"`
+- `git hash-object "$filepath"`
 
 Equivalent shell code
-- `printf 'blob %s\0' "$(wc -c < "$filename")" | cat - "$filename" | sha1sum`
-- `printf 'blob %s\0' "$(find -L "${filename%/*}" -maxdepth 1 -name "${filename##*/}" -printf %s)" | cat - "$filename" | sha1sum`
-- `printf 'blob %s\0' "$(find -L "$(dirname "$filename")" -maxdepth 1 -name "$(basename "$filename")" -printf %s)" | cat - "$filename" | sha1sum`
-- `stat --printf='blob %s\0' "$filename" | cat - "$filename" | sha1sum`
+- `printf 'blob %s\0' "$(wc -c < "$filepath")" | cat - "$filepath" | sha1sum`
+- `printf 'blob %s\0' "$(find -L "${filepath%/*}" -maxdepth 1 -name "${filepath##*/}" -printf %s)" | cat - "$filepath" | sha1sum`
+- `printf 'blob %s\0' "$(find -L "$(dirname "$filepath")" -maxdepth 1 -name "$(basename "$filepath")" -printf %s)" | cat - "$filepath" | sha1sum`
+- `stat --printf='blob %s\0' "$filepath" | cat - "$filepath" | sha1sum`
 
 ### Recreating an object entry
 
