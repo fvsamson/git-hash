@@ -1,5 +1,5 @@
 # git-hash
-**Understanding and recreating Git's hash implementations**
+**Understanding Git's hash calculations and implementing them in shell code**
 
 ### Sources
 These provided all necessary information without resorting to reading Git's source code, but at least the shell implementations were all not completely correct; but their flaws only start to show, when reading files with embedded newlines or other formatting characters.
