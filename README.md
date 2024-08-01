@@ -40,9 +40,10 @@ Using `git hash-object`
 
 Equivalent shell code
 - `printf 'blob %s\0' "$(wc -c < "$filepath")" | cat - "$filepath" | sha1sum`
-- `printf 'blob %s\0' "$(find -L "${filepath%/*}" -maxdepth 1 -name "${filepath##*/}" -printf %s)" | cat - "$filepath" | sha1sum`
-- `printf 'blob %s\0' "$(find -L "$(dirname "$filepath")" -maxdepth 1 -name "$(basename "$filepath")" -printf %s)" | cat - "$filepath" | sha1sum`
-- `stat --printf='blob %s\0' "$filepath" | cat - "$filepath" | sha1sum`
+- `printf 'blob %s\0' "$(find -L "${filepath%/*}" -maxdepth 1 -name "${filepath##*/}" -type f -printf %s)" | cat - "$filepath" | sha1sum`
+- `printf 'blob %s\0' "$(find -L "$(dirname "$filepath")" -maxdepth 1 -name "$(basename "$filepath")" -type f -printf %s)" | cat - "$filepath" | sha1sum`
+- `stat -L --printf='blob %s\0' "$filepath" | cat - "$filepath" | sha1sum`
+- `stat -L --printf='%F blob %s\0' "$filepath" | grep -z '^regular file blob ' | sed -z 's/^regular file \(blob .*\)/\1/' | cat - "$filepath" | sha1sum`
 
 ### Recreating an object entry
 
