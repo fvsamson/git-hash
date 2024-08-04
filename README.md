@@ -48,6 +48,11 @@ Equivalent shell code
 ### Recreating an object entry
 
 ToDo
+`# find -L . -type d -path "*/.git" -prune -o -printf "1%#05m %f\t%p\t%h\n"`
+`# find -L . -type d -path "*/.git" -prune -o -perm /111 -printf "100775 %f\t%p\t%h\n" -o \! -perm /111 -printf "100664 %f\t%p\t%h\n"`
+`find -L . -type d -path "*/.git" -prune -o -readable -xtype l -type f -printf "120000 %f\t%p\t%h\n" -o -readable -executable -type f -printf "100775 %f\t%p\t%h\n" -o -readable \! -executable -type f -printf "100664 %f\t%p\t%h\n"`
+`find -L . -type d -path "*/.git" -prune -o -readable -type f \( -xtype l -printf "120000 %f\t%p\t%h\n" -o -executable -printf "100775 %f\t%p\t%h\n" -o \! -executable -printf "100664 %f\t%p\t%h\n" \)`
+\# Separate links and dirs according to https://git-scm.com/book/en/v2/Git-Internals-Git-Objects#_tree_objects
 
 ### Recreating a `tree` object's hash
 
